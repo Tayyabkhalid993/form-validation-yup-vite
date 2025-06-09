@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import * as yup from 'yup';
 
 export default function App() {
@@ -35,11 +35,10 @@ export default function App() {
 
   const onSubmitHandle = async () => {
     try {
-      const isValid = await userSchema.validate({
+     await userSchema.validate({
         name: userName,
         phone: userPhone
       })
-      console.log(isValid);
 
       if (editId) {
         const editData = data.map(item => item.id == editId ? { ...item, name: userName, phone: userPhone } : item);
